@@ -17,7 +17,7 @@ describe('Componente principal', () => {
     it('o botão realizar transacao é exibio', () => {
       render(<App />);
 
-      expect(screen.getByText('Realizar opera')).toBeInTheDocument();
+      expect(screen.getByText('Realizar operação')).toBeInTheDocument();
     });
   });
 });
