@@ -30,12 +30,12 @@ describe('Componente principal', () => {
       expect(novoSaldo).toBe(100);
     });
     it('que é um saque, a transacao será realizada', () => {
-      const { getByText, getByTestId, getByLabelText } = render(<App />);
-
-      const saldo = getByText('R$ 1000');
-      const transacao = getByLabelText('Saque');
-      const valor = getByTestId('valor');
-      const botaoTransacao = getByText('Realizar operação');
+      render(<App />);
+      // Com o screen podemos apenas renderizar o componente e as propriedades passamos com o creen
+      const saldo = screen.getByText('R$ 1000');
+      const transacao = screen.getByLabelText('Saque');
+      const valor = screen.getByTestId('valor');
+      const botaoTransacao = screen.getByText('Realizar operação');
 
       expect(saldo.textContent).toBe('R$ 1000');
 
