@@ -1,3 +1,4 @@
+import { toBeInTheDocument } from '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 import api from './api';
@@ -24,7 +25,7 @@ describe('Requiscoes para API', () => {
 
         render(<App />);
 
-        await screen.findByText('saque')
+        expect (await screen.findByText('saque')).toBeInTheDocument();
         
         expect(screen.getByTestId('transacoes').children.length).toBe(2);
     })
