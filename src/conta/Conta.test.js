@@ -11,4 +11,11 @@ describe('Componente de conta', () => {
 
     expect(saldo.textContent).toBe('R$ 1000');
   });
+  it('Chama a funcao de realizar transacao quando o botao é clicado', () => {
+    const funcaoRealizarTransacao = jest.fn(); //Passa uma funcao que nao faz nada, mas checa se a funcaopelo nome dela se esta funcionando
+
+    render(<Conta saldo={100} realizarTransacao={funcaoRealizarTransacao} />);
+
+    expect(funcaoRealizarTransacao).toHaveCalled(); //Queremos saber se ela foi chamada
+  });
 });
