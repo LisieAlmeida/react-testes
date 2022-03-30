@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Conta from './Conta';
 
 describe('Componente de conta', () => {
@@ -14,8 +14,10 @@ describe('Componente de conta', () => {
   it('Chama a funcao de realizar transacao quando o botao é clicado', () => {
     const funcaoRealizarTransacao = jest.fn(); //Passa uma funcao que nao faz nada, mas checa se a funcaopelo nome dela se esta funcionando
 
-    render(<Conta saldo={100} realizarTransacao={funcaoRealizarTransacao} />);
+    render(<Conta saldo={1000} realizarTransacao={funcaoRealizarTransacao} />);
 
-    expect(funcaoRealizarTransacao).toHaveCalled(); //Queremos saber se ela foi chamada
+    fireEvent.click(screen.getByText('Realizar operação'));
+
+    expect(funcaoRealizarTransacao).toHaveBeenCalled(); //Queremos saber se ela foi chamada
   });
 });
